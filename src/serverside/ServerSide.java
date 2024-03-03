@@ -24,9 +24,9 @@ public class ServerSide {
             int port = 3457;
             ServerSocket serverSocket = new ServerSocket(port);
             System.out.println("Server is listening on port " + port);
-            
+            Socket clientSocket;
             while (true) {
-                Socket clientSocket = serverSocket.accept();
+                clientSocket = serverSocket.accept();
                 System.out.println("New client connected");
                 
                 Thread t = new Thread(new FileServerThread(clientSocket));
